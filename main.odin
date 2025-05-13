@@ -2,6 +2,7 @@ package raymath_angle_example
 
 import rl "vendor:raylib"
 import "core:math"
+import "core:math/linalg"
 
 main :: proc() {
 
@@ -36,6 +37,7 @@ main :: proc() {
             v2Normal := rl.Vector2Normalize(v2 - v0)
 
             odinAngle = rl.Vector2Angle(v1Normal, v2Normal)*rl.RAD2DEG
+            // native raylib implementation of Vector2Angle
             dot:= v1Normal.x*v2Normal.x + v1Normal.y*v2Normal.y
             det:= v1Normal.x*v2Normal.y - v1Normal.y*v2Normal.x
             raylibAngle = math.atan2(det, dot)*rl.RAD2DEG
